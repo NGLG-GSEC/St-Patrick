@@ -112,11 +112,13 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+const T = (text) => (window.I18N ? window.I18N.tr(text) : text);
+
 function renderLodges(filter = "") {
   const grid = document.querySelector("#lodge-grid");
   const term = filter.trim().toLowerCase();
   const lodges = data.lodges.filter((item) => {
-    const haystack = `${item.year} ${item.name} ${item.jurisdiction} ${item.status}`.toLowerCase();
+    const haystack = `${item.year} ${item.name} ${item.jurisdiction} ${item.status} ${T(item.name)} ${T(item.jurisdiction)} ${T(item.status || "")}`.toLowerCase();
     return haystack.includes(term);
   });
 
@@ -126,10 +128,10 @@ function renderLodges(filter = "") {
         <article class="lodge-card">
           <div>
             <span class="year">${escapeHtml(item.year)}</span>
-            <h3>${escapeHtml(item.name)}</h3>
-            <p>${escapeHtml(item.jurisdiction)}</p>
+            <h3>${escapeHtml(T(item.name))}</h3>
+            <p>${escapeHtml(T(item.jurisdiction))}</p>
           </div>
-          <span class="status">${escapeHtml(item.status || "Listed")}</span>
+          <span class="status">${escapeHtml(T(item.status || "Listed"))}</span>
         </article>
       `
     )
@@ -143,13 +145,13 @@ function renderOfficers() {
     .map(
       (item) => `
       <div class="officer-row">
-        <span>${escapeHtml(item.office)}</span>
-        <strong>${escapeHtml(item.name)}${item.postnominal ? `, ${escapeHtml(item.postnominal)}` : ""}</strong>
+        <span>${escapeHtml(T(item.office))}</span>
+        <strong>${escapeHtml(window.I18N.knight(item.name))}${item.postnominal ? `, ${escapeHtml(item.postnominal)}` : ""}</strong>
       </div>
     `
     )
     .join("");
-  document.querySelector("#toggle-officers").textContent = showAllOfficers ? "Show fewer" : "Show all";
+  document.querySelector("#toggle-officers").textContent = T(showAllOfficers ? "Show fewer" : "Show all");
 }
 
 function renderCompactList(selector, items, keyLabel) {
@@ -158,7 +160,7 @@ function renderCompactList(selector, items, keyLabel) {
       (item) => `
       <div>
         <span>${escapeHtml(item[keyLabel])}</span>
-        <strong>${escapeHtml(item.name)}</strong>
+        <strong>${escapeHtml(window.I18N.knight(item.name))}</strong>
       </div>
     `
     )
@@ -171,11 +173,11 @@ function renderNews() {
       (item) => `
       <article class="news-card">
         <div class="news-meta">
-          <span>${escapeHtml(item.date)}</span>
-          <span>${escapeHtml(item.category || "Update")}</span>
+          <span>${escapeHtml(window.I18N.date(item.date))}</span>
+          <span>${escapeHtml(T(item.category || "Update"))}</span>
         </div>
-        <h3>${escapeHtml(item.title)}</h3>
-        <p>${escapeHtml(item.text)}</p>
+        <h3>${escapeHtml(T(item.title))}</h3>
+        <p>${escapeHtml(T(item.text))}</p>
       </article>
     `
     )
@@ -187,10 +189,10 @@ function renderGallery() {
     .map(
       (item) => `
       <article class="gallery-item">
-        <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.title)}" />
+        <img src="${escapeHtml(item.src)}" alt="${escapeHtml(T(item.title))}" />
         <div>
-          <strong>${escapeHtml(item.title)}</strong>
-          <p>${escapeHtml(item.caption)}</p>
+          <strong>${escapeHtml(T(item.title))}</strong>
+          <p>${escapeHtml(T(item.caption))}</p>
         </div>
       </article>
     `
@@ -281,9 +283,9 @@ function wireBuilder() {
       data = { ...structuredClone(defaultData), ...imported };
       saveData();
       renderAll();
-      alert("Data imported.");
+      alert(T("Data imported."));
     } catch {
-      alert("The JSON could not be read.");
+      alert(T("The JSON could not be read."));
     }
   });
 
@@ -303,3 +305,4 @@ document.querySelector("#toggle-officers").addEventListener("click", () => {
 wireNavigation();
 wireBuilder();
 renderAll();
+window.I18N.onChange(renderAll);
