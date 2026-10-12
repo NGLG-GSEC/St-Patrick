@@ -871,29 +871,6 @@ textarea {
 }
 
 @media (max-width: 920px) {
-  .site-nav {
-    position: absolute;
-    top: 100%;
-    left: 1rem;
-    right: 1rem;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0.75rem;
-    background: rgba(251, 247, 236, 0.98);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-  }
-
-  .site-nav.open {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-  }
-
   .hero-register {
     position: static;
     margin-top: 2rem;
@@ -1563,5 +1540,48 @@ html.path-full {
     max-height: 42dvh;
     border-left: 0;
     border-top: 1px solid rgba(241, 205, 106, 0.4);
+  }
+}
+
+/* The menu collapses early enough that the brand, links and language flag never overlap,
+   including the longer French, Greek, Spanish and Portuguese labels. */
+.brand {
+  flex: 0 1 auto;
+}
+
+.site-nav {
+  flex: 1 1 auto;
+  justify-content: center;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.site-nav a {
+  white-space: nowrap;
+}
+
+@media (max-width: 1240px) {
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem;
+    background: rgba(251, 247, 236, 0.98);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
   }
 }
