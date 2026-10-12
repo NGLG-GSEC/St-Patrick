@@ -978,3 +978,373 @@ textarea {
     flex-direction: column;
   }
 }
+
+/* Education & foreign relations */
+.education-section {
+  padding-top: 0;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.education-grid .identity-card {
+  min-height: 0;
+}
+
+.relations-panel {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: white;
+  background: var(--emerald-deep);
+}
+
+.relations-panel h3 {
+  color: white;
+}
+
+.relations-panel ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relations-panel li {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+}
+
+.relations-panel strong,
+.relations-panel li span {
+  display: block;
+}
+
+.relations-panel strong {
+  color: var(--gold-soft);
+}
+
+.relations-panel li span {
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.degrees-intro {
+  max-width: 62rem;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.degree-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+.degree-card {
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(255, 250, 240, 0.96), rgba(235, 242, 236, 0.88)), var(--paper);
+}
+
+.degree-number {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.degree-card h4 {
+  margin: 0 0 0.6rem;
+  color: var(--emerald-deep);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+}
+
+.degree-card .jewel {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.degree-card .jewel strong {
+  display: block;
+  color: var(--emerald);
+}
+
+@media (max-width: 920px) {
+  .education-grid,
+  .relations-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Timeline, figures and the 3D path */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  position: relative;
+  padding: 1rem 0.2rem 0;
+  border-top: 2px solid var(--gold);
+  font-size: 0.9rem;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--emerald);
+  border: 2px solid var(--gold);
+}
+
+.timeline time {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--emerald-deep);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.relations-panel p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.figure-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: start;
+}
+
+.figure-row figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.figure-row img {
+  width: 100%;
+  height: auto;
+}
+
+.figure-row figcaption {
+  padding: 0.9rem 1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.path3d {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.path3d-stage {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 162, 74, 0.5);
+  border-radius: var(--radius);
+  background: radial-gradient(circle at 50% 30%, #0d3d28, #03120c 70%);
+  box-shadow: var(--shadow);
+  touch-action: pan-y;
+}
+
+.path3d-stage canvas {
+  display: block;
+  cursor: grab;
+}
+
+.path3d-stage canvas:active {
+  cursor: grabbing;
+}
+
+.path3d-fallback {
+  display: none;
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 1rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.path3d.no-3d .path3d-fallback {
+  display: block;
+}
+
+.path3d.no-3d .path3d-stage,
+.path3d.no-3d [data-path-overview] {
+  display: none;
+}
+
+.path3d.no-3d {
+  grid-template-columns: 1fr;
+}
+
+.path3d-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(255, 250, 240, 0.96), rgba(235, 242, 236, 0.9));
+}
+
+.path3d-step {
+  margin: 0 0 0.3rem;
+  color: var(--emerald);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.path3d-info h4 {
+  margin: 0 0 0.6rem;
+  color: var(--emerald-deep);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+}
+
+.path3d-info p {
+  margin: 0 0 0.6rem;
+}
+
+.path3d-lesson {
+  font-weight: 600;
+}
+
+.path3d-jewel {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.path3d-link {
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(200, 162, 74, 0.14);
+  font-size: 0.9rem;
+}
+
+.path3d-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.path3d-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.path3d-steps li {
+  counter-increment: step;
+}
+
+.path3d-steps button {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  background: white;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.path3d-steps button::before {
+  content: counter(step) ". ";
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.path3d-steps button[aria-current="step"] {
+  color: white;
+  background: var(--emerald);
+  border-color: var(--emerald);
+}
+
+.degrees-detail {
+  margin-top: 1.5rem;
+}
+
+.degrees-detail summary {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.degrees-detail[open] summary {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 920px) {
+  .figure-row,
+  .path3d {
+    grid-template-columns: 1fr;
+  }
+
+  .path3d-stage {
+    min-height: 440px;
+  }
+}
+
+.greek-guide {
+  max-width: 62rem;
+  margin: 2.5rem 0 0;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(255, 250, 240, 0.96), rgba(235, 242, 236, 0.88)), var(--paper);
+}
+
+.greek-guide h3 {
+  margin-top: 0;
+}
+
+.greek-guide ol {
+  padding-left: 1.3rem;
+}
+
+.greek-guide li {
+  margin-bottom: 0.4rem;
+}
