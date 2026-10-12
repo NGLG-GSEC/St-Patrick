@@ -343,6 +343,128 @@ h3 {
   margin-top: 0.25rem;
 }
 
+.identity-section {
+  padding-top: 0;
+}
+
+.identity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.identity-card {
+  min-height: 330px;
+  padding: 1.3rem;
+  background:
+    linear-gradient(160deg, rgba(255, 250, 240, 0.96), rgba(235, 242, 236, 0.88)),
+    var(--paper);
+}
+
+.identity-card span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  color: white;
+  background: var(--emerald);
+  font-weight: 900;
+}
+
+.identity-card h3 {
+  min-height: 3.2rem;
+}
+
+.eligibility-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: 1.4rem;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(3, 59, 39, 0.96), rgba(7, 27, 20, 0.96)),
+    var(--emerald-deep);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.eligibility-panel h3 {
+  color: white;
+}
+
+.eligibility-panel p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.eligibility-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.eligibility-list li {
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.eligibility-list strong,
+.eligibility-list span {
+  display: block;
+}
+
+.eligibility-list span {
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.55;
+}
+
+.relationship-table {
+  margin-top: 1rem;
+  overflow: hidden;
+  background: rgba(255, 250, 240, 0.78);
+}
+
+.relationship-table > div {
+  display: grid;
+  grid-template-columns: 0.8fr 0.85fr 1.35fr;
+}
+
+.relationship-table > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.relationship-table span {
+  padding: 0.9rem 1rem;
+  line-height: 1.55;
+}
+
+.relationship-table div:first-child {
+  color: white;
+  background: var(--emerald);
+  font-weight: 900;
+}
+
+.relationship-table span + span {
+  border-left: 1px solid var(--line);
+}
+
+.relationship-table div:first-child span + span {
+  border-left-color: rgba(255, 255, 255, 0.18);
+}
+
+.source-note {
+  max-width: 920px;
+  margin-top: 1rem;
+  font-size: 0.94rem;
+}
+
 .meaning-section {
   width: 100%;
   max-width: none;
@@ -369,6 +491,9 @@ h3 {
 
 .meaning-main,
 .principles article,
+.identity-card,
+.eligibility-panel,
+.relationship-table,
 .charter-card,
 .officer-panel,
 .honours article,
@@ -776,6 +901,8 @@ textarea {
 
   .intro-strip,
   .story-grid,
+  .identity-grid,
+  .eligibility-panel,
   .meaning-layout,
   .governance-grid,
   .honours,
@@ -790,6 +917,41 @@ textarea {
 
   .gallery-item:nth-child(2) {
     transform: none;
+  }
+
+  .identity-card {
+    min-height: auto;
+  }
+
+  .identity-card h3 {
+    min-height: 0;
+  }
+
+  .relationship-table,
+  .relationship-table > div,
+  .relationship-table span {
+    display: block;
+  }
+
+  .relationship-table > div {
+    padding: 0.75rem 0;
+  }
+
+  .relationship-table div:first-child {
+    display: none;
+  }
+
+  .relationship-table span {
+    padding: 0.35rem 1rem;
+  }
+
+  .relationship-table span + span {
+    border-left: 0;
+  }
+
+  .relationship-table span:first-child {
+    color: var(--emerald);
+    font-weight: 900;
   }
 }
 
