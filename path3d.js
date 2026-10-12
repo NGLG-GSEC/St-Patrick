@@ -20,6 +20,8 @@ function boot(root) {
   const prev = root.querySelector("[data-path-prev]");
   const next = root.querySelector("[data-path-next]");
   const overview = root.querySelector("[data-path-overview]");
+  const openFull = root.querySelector("[data-path-full]");
+  const closeFull = root.querySelector("[data-path-close]");
   let current = -1;
   let view = null;
 
@@ -83,6 +85,30 @@ function boot(root) {
     if (view) view.overview();
   });
 
+  // Full screen: the whole path (stage and panel) covers the page; the close button or Esc returns to it.
+  let placeholder = null;
+  let savedY = 0;
+  function setFull(on) {
+    if (on === root.classList.contains("is-full")) return;
+    if (on) {
+      savedY = window.scrollY;
+      placeholder = document.createElement("div");
+      placeholder.style.height = `${root.offsetHeight}px`;
+      root.before(placeholder);
+    } else if (placeholder) {
+      placeholder.remove();
+      placeholder = null;
+    }
+    root.classList.toggle("is-full", on);
+    document.documentElement.classList.toggle("path-full", on);
+    openFull.setAttribute("aria-expanded", String(on));
+    if (!on) window.scrollTo({ top: savedY, behavior: "instant" });
+    (on ? closeFull : openFull).focus({ preventScroll: true });
+  }
+  openFull.addEventListener("click", () => setFull(true));
+  closeFull.addEventListener("click", () => setFull(false));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setFull(false); });
+
   select(0);
   current = 0;
 
@@ -95,6 +121,7 @@ function boot(root) {
     view.focus(0);
   } catch (err) {
     root.classList.add("no-3d");
+    openFull.hidden = true;
     console.warn("3D path unavailable:", err);
   }
 }

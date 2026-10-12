@@ -400,7 +400,11 @@
         </div>
 
         <div id="path3d" class="path3d">
-          <div class="path3d-stage" data-path-stage></div>
+          <div class="path3d-main">
+            <div class="path3d-stage" data-path-stage></div>
+            <button type="button" class="path3d-fs" data-path-full aria-expanded="false">Full screen</button>
+            <button type="button" class="path3d-close" data-path-close aria-label="Close full screen">&times;</button>
+          </div>
           <p class="path3d-fallback">Your browser could not start the 3D view. The same path is described step by step below.</p>
           <div class="path3d-panel">
             <div class="path3d-info" data-path-info aria-live="polite"></div>

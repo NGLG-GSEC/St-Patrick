@@ -326,7 +326,9 @@ window.SITE_I18N = {
   "Jewel:": "Bijou (Jewel) :",
   "Companion Order": "Ordre compagnon (Companion Order)",
   "Steps of the path": "Étapes du chemin",
-  "Interactive 3D model of the Allied Masonic Degrees path": "Modèle 3D interactif du chemin des Allied Masonic Degrees"
+  "Interactive 3D model of the Allied Masonic Degrees path": "Modèle 3D interactif du chemin des Allied Masonic Degrees",
+  "Full screen": "Plein écran",
+  "Close full screen": "Fermer le plein écran"
  },
  "el": {
   "Masonic Order of Saint Patrick home": "Αρχική σελίδα της Τεκτονικής Τάξης του Αγίου Πατρικίου",
@@ -654,7 +656,9 @@ window.SITE_I18N = {
   "Jewel:": "Κόσμημα (Jewel):",
   "Companion Order": "Συνοδευτική Τάξη (Companion Order)",
   "Steps of the path": "Βήματα της πορείας",
-  "Interactive 3D model of the Allied Masonic Degrees path": "Διαδραστικό τρισδιάστατο μοντέλο της πορείας των Allied Masonic Degrees"
+  "Interactive 3D model of the Allied Masonic Degrees path": "Διαδραστικό τρισδιάστατο μοντέλο της πορείας των Allied Masonic Degrees",
+  "Full screen": "Πλήρης οθόνη",
+  "Close full screen": "Κλείσιμο πλήρους οθόνης"
  },
  "es": {
   "Masonic Order of Saint Patrick home": "Inicio de la Orden Masónica de San Patricio",
@@ -982,7 +986,9 @@ window.SITE_I18N = {
   "Jewel:": "Joya (Jewel):",
   "Companion Order": "Orden compañera (Companion Order)",
   "Steps of the path": "Pasos del camino",
-  "Interactive 3D model of the Allied Masonic Degrees path": "Modelo 3D interactivo del camino de los Allied Masonic Degrees"
+  "Interactive 3D model of the Allied Masonic Degrees path": "Modelo 3D interactivo del camino de los Allied Masonic Degrees",
+  "Full screen": "Pantalla completa",
+  "Close full screen": "Cerrar pantalla completa"
  },
  "pt": {
   "Masonic Order of Saint Patrick home": "Página inicial da Ordem Maçônica de São Patrício",
@@ -1310,6 +1316,8 @@ window.SITE_I18N = {
   "Jewel:": "Joia (Jewel):",
   "Companion Order": "Ordem companheira (Companion Order)",
   "Steps of the path": "Passos do caminho",
-  "Interactive 3D model of the Allied Masonic Degrees path": "Modelo 3D interativo do caminho dos Allied Masonic Degrees"
+  "Interactive 3D model of the Allied Masonic Degrees path": "Modelo 3D interativo do caminho dos Allied Masonic Degrees",
+  "Full screen": "Tela cheia",
+  "Close full screen": "Fechar tela cheia"
  }
 };
