@@ -1326,3 +1326,25 @@ textarea {
     min-height: 440px;
   }
 }
+
+.greek-guide {
+  max-width: 62rem;
+  margin: 2.5rem 0 0;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(255, 250, 240, 0.96), rgba(235, 242, 236, 0.88)), var(--paper);
+}
+
+.greek-guide h3 {
+  margin-top: 0;
+}
+
+.greek-guide ol {
+  padding-left: 1.3rem;
+}
+
+.greek-guide li {
+  margin-bottom: 0.4rem;
+}
