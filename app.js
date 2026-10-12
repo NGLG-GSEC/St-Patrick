@@ -200,6 +200,19 @@ function renderGallery() {
     .join("");
 }
 
+function renderContact() {
+  const contact = (window.SITE_CONFIG && window.SITE_CONFIG.contact) || {};
+  const list = document.querySelector("[data-contact-list]");
+  const pending = document.querySelector("[data-contact-pending]");
+  if (!list) return;
+  const rows = [];
+  if (contact.email) rows.push([T("Email"), `<a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a>`]);
+  if (contact.phone) rows.push([T("Telephone"), `<a href="tel:${escapeHtml(contact.phone.replace(/\s+/g, ""))}">${escapeHtml(contact.phone)}</a>`]);
+  if (contact.address) rows.push([T("Postal address"), escapeHtml(contact.address)]);
+  list.innerHTML = rows.map(([label, value]) => `<li><strong>${escapeHtml(label)}</strong>${value}</li>`).join("");
+  if (pending) pending.hidden = rows.length > 0;
+}
+
 function renderAll() {
   renderLodges(document.querySelector("#lodge-search")?.value || "");
   renderOfficers();
@@ -207,6 +220,7 @@ function renderAll() {
   renderCompactList("#grand-cross-list", data.grandCross, "year");
   renderNews();
   renderGallery();
+  renderContact();
 }
 
 function wireNavigation() {
