@@ -29,6 +29,7 @@
         <a href="#lodges">Lodges</a>
         <a href="#governance">Administration</a>
         <a href="#news">News</a>
+        <a href="#contact">Contact</a>
         <a href="#builder">Builder</a>
       </nav>
     </header>
@@ -589,6 +590,32 @@
         <div id="news-list" class="news-list"></div>
       </section>
 
+      <section id="contact" class="section contact-section">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Contact and website</h2>
+          <p>
+            Admission to the Order is by invitation only. For questions about the Order or about this
+            website, please use the contact details below.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>The Order</h3>
+            <ul class="contact-list" data-contact-list></ul>
+            <p class="contact-pending" data-contact-pending>Contact details of the Grand Lodge will be published here.</p>
+          </article>
+          <article class="contact-card webmaster-card">
+            <img class="webmaster-photo large" src="assets/webmaster-skiadopoulos.jpg" alt="Ing. Dimitrios Skiadopoulos, Webmaster" width="120" height="120" loading="lazy" />
+            <div>
+              <p class="eyebrow">Webmaster</p>
+              <h3>Ing. Dimitrios Skiadopoulos</h3>
+              <p>Responsible for the design, technical operation and maintenance of this website.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section id="builder" class="section builder-section">
         <div class="builder-intro">
           <p class="eyebrow">Builder</p>
@@ -656,14 +683,30 @@
     </main>
 
     <footer class="site-footer">
-      <div>
+      <div class="footer-brand">
         <img src="assets/limerick-media/image3.png" alt="" />
         <p>
           The Masonic Order of Saint Patrick
           <span>Quis Separabit</span>
         </p>
       </div>
-      <p>Prepared as a future-ready website structure for public information, news and archival updates.</p>
+      <p class="footer-note">Prepared as a future-ready website structure for public information, news and archival updates.</p>
+      <nav class="legal-links" aria-label="Legal information">
+        <a href="legal.html#imprint">Legal notice</a>
+        <a href="legal.html#privacy">Privacy policy</a>
+        <a href="legal.html#cookies">Cookies and local storage</a>
+        <a href="legal.html#terms">Terms of use</a>
+        <a href="legal.html#copyright">Copyright and credits</a>
+        <a href="legal.html#accessibility">Accessibility</a>
+      </nav>
+      <div class="footer-credit">
+        <img class="webmaster-photo" src="assets/webmaster-skiadopoulos.jpg" alt="Ing. Dimitrios Skiadopoulos, Webmaster" width="56" height="56" />
+        <p>
+          <span>Webmaster</span>
+          <strong>Ing. Dimitrios Skiadopoulos</strong>
+        </p>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Masonic Order of Saint Patrick. All rights reserved.</p>
     </footer>
 
     <script type="importmap">
@@ -674,6 +717,7 @@
         }
       }
     </script>
+    <script src="site-config.js"></script>
     <script src="i18n-data.js"></script>
     <script src="i18n.js"></script>
     <script src="app.js"></script>
